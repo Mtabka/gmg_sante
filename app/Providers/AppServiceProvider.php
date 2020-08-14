@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +26,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        Validator::extend('update_email', function ($attribute, $value, $parameters, $validator) {
+            return (!DB::table($parameters[0])->where('id','!=',$parameters[1])->where($attribute,$value)->first());
+        });
     }
 }
