@@ -13,22 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
 Route::group(['namespace' => 'Api'], function() {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/all', 'UserController@index');
         Route::get('/{id}', 'UserController@show');
-        Route::post('/', 'UserController@store');
-        Route::patch('/{id}', 'UserController@update');
+        Route::post('/store', 'UserController@store');
         Route::delete('/{id}', 'UserController@destroy');
     });
     Route::group(['prefix' => 'task'], function () {
         Route::get('/all', 'TaskController@index');
         Route::get('/{id}', 'TaskController@show');
-        Route::post('/', 'TaskController@store');
-        Route::patch('/{id}', 'TaskController@update');
-        Route::delete('/{id}', 'TaskController@destroy');
+        Route::post('/store', 'TaskController@store');
+        Route::delete('/', 'TaskController@destroy');
     });
 });
