@@ -11,6 +11,7 @@ class TaskSeeder extends Seeder {
         for ($i = 0; $i < 10; $i++) {
             $task = new Task;
             $task->name = $faker->lastName;
+            $task->status = array_rand([1, 2]);
             $task->description = $faker->text;
             $task->user_id = array_rand([1,2,3,4,5,6,7,8,9,10]);
             $task->save();

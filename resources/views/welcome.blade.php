@@ -85,6 +85,10 @@
                     <input type="text" class="form-control" name="name" id="task_name" required>
                 </div>
                 <div class="form-group">
+                    <label for="usr">Status:</label>
+                    <input type="text" class="form-control" name="status" id="task_status" required>
+                </div>
+                <div class="form-group">
                     <label for="usr">Description :</label>
                     <textarea class="form-control" name="description" id="task_description" cols="30" rows="10" required></textarea>
                 </div>

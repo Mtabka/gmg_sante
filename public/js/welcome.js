@@ -44,6 +44,7 @@ $(document).ready(function() {
                 console.log(data);
                 $('#task_modal_label').html('Edit Task');
                 $('#task_name').val(data.name);
+                $('#task_status').val(data.status);
                 $('#task_description').val(data.description);
                 $('#task_user').val(data.user_id);
                 $('#task_id').val(data.id);
@@ -107,6 +108,7 @@ $(document).ready(function() {
         });
         $('#task_modal_label').html('Create Task');
         $('#task_name').val("");
+        $('#task_status').val("");
         $('#task_description').val("");
         $('#task_user').val("");
         $('#task_id').val("");

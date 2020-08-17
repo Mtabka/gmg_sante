@@ -33,6 +33,7 @@ class TaskController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
+            'status' => 'required|max:255',
             'description' => 'required',
             'user_id' => 'required'//int|exists:users,id,
         ]);
@@ -46,6 +47,7 @@ class TaskController extends Controller
             else
                 $task = new Task;
             $task->name = $request->get('name');
+            $task->status = $request->get('status');
             $task->description = $request->get('description');
             $task->user_id = $request->get('user_id');
             $task->save();
